@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
 import sys
 import argparse
 import io
 from pwn import *
 
-context.log_level = 'debug'
-exe = context.binary = ELF(args.EXE or './BINARY_NAME')
+exe = context.binary = ELF(args.EXE or './BINNAME')
 
 def start_local(args, argv=[], *a, **kw):
     if args.GDB:
@@ -34,9 +34,11 @@ if args.mode == 'local':
 else:
     start_func = lambda: start_remote(args.host, args.port)
 
-io = start_func() 
-###################
-#EXPLOIT GOES HERE#
-###################
-io.interactive()
+io = start_func()
+#
+#
+# Exploit goes here
+#
+#
 
+io.interactive()

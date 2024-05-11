@@ -72,6 +72,7 @@ def check_memory_leaks(file_path):
 
 
 def disassemble_binary(file_path, search_string=None, print_functions=False):
+
     try:
         binary = ELF(file_path)
     except Exception as e:
@@ -163,6 +164,20 @@ def main():
     check_buffer_overflow(args.binary)
     check_memory_leaks(args.binary)
     disassemble_binary(args.binary, args.search, args.functions)
+    SkGen = input("Create exploit skeleton (Y/N) :")
+    if SkGen == "y" or SkGen == "Y":
+        pwd = os.getcwd()
+        path = pwd + "/bin/template.py"
+        print(path)
+        with open(path, "r") as skeleton:
+            template_content = skeleton.read().replace("BINNAME",args.binary)
+        with open("skeleton.py","w") as tgen:
+            tgen.write(template_content)
+            print("Skeleton exploit file generated successfully as 'skeleton.py'")
+
+    else:
+        print("Not Ok")
+
 
 if __name__ == "__main__":
     main()

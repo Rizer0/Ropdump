@@ -6,8 +6,8 @@ ROPDump is a tool for analyzing binary executables to identify potential Return-
 
 - Identifies potential ROP gadgets in binary executables.
 - Detects potential buffer overflow vulnerabilities by analyzing vulnerable functions.
-- Identifies potential memory leak vulnerabilities by analyzing memory allocation functions.
 - Generates exploit templates to make the exploit process faster
+- Identifies potential memory leak vulnerabilities by analyzing memory allocation functions.
 - Can print function names and addresses for further analysis.
 - Supports searching for specific instruction patterns.
 
